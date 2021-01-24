@@ -81,11 +81,11 @@ class Financial{
     getInterestCoverageRatio(){
         let Revenue = this.getRevenue();
         let InterestCoverageRatio = (Revenue+this.NonOperatingIncome)/this.NonOperatingExpenses
-        return InterestCoverageRatio;
+        return Math.round(InterestCoverageRatio*10)/10;
     }
     getShortLiquidity(){
         let ShortLiquidity =  (this.Cash+this.SecuritiesInvestments)/(this.Sales/12)
-        return ShortLiquidity;
+        return Math.round(ShortLiquidity*10)/10;
     }
 
 }
