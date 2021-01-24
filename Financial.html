@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FinancialStatement</title>
+    <link rel="stylesheet" href="Financial.css">
+</head>
+<body>
+    <h1 id="headTitle">決算書を読む</h1>
+    <p>決算書から数字を抜いて記載すると収益性と安全性を判定します。</p>
+    <div class="boxContainer"> 
+    <div class="box">
+        <h3>P/L</h3>
+        <ul>
+            <li>
+                <label>＋売上高</label>
+                <input type="number" name="Sales" id="SalesInput" class="">
+                <span id="SalesInputMsg" class="redText"></span>
+            </li>
+            <li>
+                <label>－売上原価</label>
+                <input type="number" name="Cost" id="CostInput" class="">
+                <span id="CostInputMsg" class="redText"></span>
+            </li>
+            <hr>
+            <li> =粗利 <span id="Profit"></span></li>
+            <li>
+                <label>－販管費</label>
+                <input type="number" name="Expenses" id="ExpensesInput" class="">
+                <span id="ExpensesInputMsg" class="redText"></span>
+            </li>
+            <hr>
+            <li>＝営業利益 <span id="Revenue"></span> </li>
+            <li>
+                <label>＋営業外利益</label>
+                <input type="number" name="NonOperatingIncome" id="NonOperatingIncome" class="">
+                <span id="NonOperatingIncomeMsg" class="redText"></span>
+            </li>
+            <li>
+                <label>－営業外費用</label>
+                <input type="number" name="NonOperatingExpenses" id="NonOperatingExpenses" class="">
+                
+            </li>
+            <hr>
+            <li>＝経常利益 <span id="OrdinaryIncome"></span> </li>
+            <li>
+                <label>＋特別利益</label>
+                <input type="number" name="ExtraordinaryIncome" id="ExtraordinaryIncome" class="">
+                <span id="ExtraordinaryLossIncomeMsg" class="redText"></span>
+            </li>
+            <li>
+                <label>－特別損失</label>
+                <input type="number" name="ExtraordinaryExpenses" id="ExtraordinaryExpenses" class="">
+                <span id="ExtraordinaryLossExpensesMsg" class="redText"></span>
+            </li>
+            <li>
+                <label>－法人税等</label>
+                <input type="number" name="Taxes" id="Taxes" class="">
+                <span id="TaxesMsg" class="redText"></span>
+            </li>
+            <hr>
+            <li>＝当期純利益 <span id="NetIncome"></span> </li>
+            
+        </ul>
+    </div>
+    <div class="box">
+        <h3>B/S</h3>
+        <div class="BSbox">
+            <h5>資産</h5>
+            <ul>
+                <li>
+                    <label>流動資産</label>
+                    <input type="number" name="CurrentAsset" id="CurrentAsset" class="">
+                </li>
+                <li>
+                    <label>（現預金）</label>
+                    <input type="number" name="Cash" id="Cash" class="">
+                </li>
+                <li>
+                    <label>（有価証券）</label>
+                    <input type="number" name="SecuritiesInvestments " id="SecuritiesInvestments" class="">
+                </li>
+                <hr>
+                <li>
+                    <label>固定資産</label>
+                    <input type="number" name="FixedAsset" id="FixedAsset" class="">
+                </li>
+            </ul>
+        </div>
+        <div class="BSbox">
+            <h5>負債/純資産</h5>
+            <ul>
+                <li>
+                    <label>流動負債</label><input type="number" name="CurrentLiabilities" id="CurrentLiabilities" class="">
+                </li>
+                <hr>
+                <li>
+                    <label>固定負債</label> <span id="FixedLiabilities"></span>
+                </li>
+                <hr>
+                <li>
+                    <label>純資産</label><input type="number" name="Equity" id="Equity" class="">
+                </li>
+            </ul>
+        </div>
+        
+
+    </div>
+    </div>
+    
+    
+    <a id="button" href="#" class="btn" onclick="onCalcFinancialButoonClick()"> >> 診断 </a>
+    <!-- <button type="button" id="calcPL" onclick="onCalcFinancialButoonClick()">診断</button> -->
+    <span id="Msg" class="redText"></span>
+    
+    <div id ="resultMessage" class="displayNone">
+    <div class="boxContainer"> 
+    <h4>収益性</h4>
+    <ul>
+        <li>
+            売上高利益率 <span id="ProfitMargin" class="font16"></span>％
+            <p>売上からきちんと利益を出せているか</p>
+        </li>
+        <li>
+            総資産利益率 <span id="ROA" class="font16"></span>％
+            <p>資産を効率よく活かせているか。米国基準10％、日本基準5％</p>
+        </li>
+        <li>
+            自己資本利益率 <span id="ROE" class="font16"></span>％
+            <p>株主に対する見返りの大きさ。日本は9.4％が平均</p>
+        </li>
+    </ul>
+    <h4>安全性</h4>
+    <ul>
+        <li>
+            自己資本比率 <span id="CapitalAdequacyRatio" class="font16"></span>％
+            <p>借金の比率</p>
+        </li>
+        <li>
+            流動比率 <span id="CurrentRatio" class="font16"></span>％
+            <p>高いほうが良い</p>
+        </li>
+        <li>
+            固定比率 <span id="FixedRatio" class="font16"></span>％
+            <p>低いほうがよい</p>
+        </li>
+    </ul>
+    <ul>
+        <li>
+            インタレストカバレッジレシオ <span id="InterestCoverageRatio" class="font16"></span>倍
+            <p>利息支払能力、何倍か</p>
+        </li>
+        <li>
+            手元流動性比率 <span id="ShortLiquidity" class="font16"></span>ヶ月
+            <p>何か月分の現預金があるのか</p>
+        </li>
+    </ul>
+</div>
+</div>
+
+<footer>
+    References：
+    <a href="https://www.amazon.co.jp/dp/B08J3F6FVS/ref=dp-kindle-redirect?_encoding=UTF8&btkr=1">
+    100分でわかる 決算書「分析」超入門 2020」（佐伯 良隆）</a>
+</footer>
+  <script type="text/javascript" src="Financial.js"></script>
+</body>
+</html>

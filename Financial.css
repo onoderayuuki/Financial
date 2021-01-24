@@ -1,0 +1,91 @@
+@charset "utf-8";
+        .redInput{
+            background-color : #F4C3C3;
+        }
+        .redText{
+            color:red;
+        }
+        .font16{
+            font-size: 16pt;
+        }
+        .displayNone{
+            display: none;
+        }
+        .box{
+            padding:10px;
+            margin-right:15px;
+            margin-bottom:15px;
+            display: flex;
+            /* border:5px solid #B3B3B3; */
+            background-color: #E6E6E6;
+        }
+        .boxContainer{
+            display: flex;
+        }
+        .BSbox{
+            margin-left: 15px;
+        }
+        h1{
+            background: #B3B3B3;
+            color: white;
+            padding-top: 10px;/*文字周りの余白*/
+            padding-left: 30px;/*文字周りの余白*/
+            border-bottom: solid 5px gold ;/*下線*/
+        }
+        h3{
+            padding-right: 10px;
+            border-top: solid 3px gold ;/*下線*/
+        }
+        h4{
+            padding-left: 10px;
+        }
+        ul li {
+            list-style: none;
+            font-size: 15px;
+        }
+        label {
+            display: inline-block;
+            padding-left: 5px;
+            margin-right: 10px;
+            width:100px;
+            /* float: left; */
+        }
+        input{
+            width:100px;
+            border:none;
+        }
+        p{
+            padding-left: 10px;
+            font-size: 12px;
+        }
+        
+        .btn {
+            position: relative;
+            display: inline-block;
+            font-weight: bold;
+            padding: 5px 20px;
+            text-decoration: none;
+            color: white;
+            background: gold;
+            transition: .4s;            
+            }
+        a.disable{
+            background: #B3B3B3;
+        }
+        .btn:hover {
+            background: goldenrod;
+        }
+        a.disable:hover{
+            background: #B3B3B3;
+        }
+        #resultMessage{
+            border-top:3px solid  gold;
+            border-bottom:3px solid  gold;
+        }
+        footer{
+            margin-top:30px;
+            padding:10px;
+            color:#B3B3B3;
+            border-top:solid 5px #B3B3B3;
+            background: #E6E6E6;
+        }
