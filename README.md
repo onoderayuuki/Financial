@@ -8,5 +8,3 @@ https://onoderayuuki.github.io/Financial/
  - プルリク（レビューのやりとり群）のコメントや処理の方法
    - comment > submit > resolve
  - ブランチをmergeした 
-
- ああああああああああああああ
