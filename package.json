@@ -1,0 +1,22 @@
+{
+  "name": "financial",
+  "version": "1.0.0",
+  "description": "javascript*financial https://onoderayuuki.github.io/Financial/",
+  "main": "Financial.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/onoderayuuki/Financial.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/onoderayuuki/Financial/issues"
+  },
+  "homepage": "https://github.com/onoderayuuki/Financial#readme",
+  "devDependencies": {
+    "jest": "^26.6.3"
+  }
+}
